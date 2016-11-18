@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="CustomCalendar.CustomCalendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="10">
+        <Grid Height="30" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Prev" Click="ButtonBase_OnClick" />
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="18"
+                       Text="{Binding CurrentDate, StringFormat='{}{0:MMMM yyyy}'}"
+                       MouseLeftButtonUp="ButtonBase3_OnClick" />
+
+            <Button Grid.Column="2" Content="Next" Click="ButtonBase2_OnClick" />
+        </Grid>
+
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" HorizontalContentAlignment="Center" FontWeight="Bold">Mon</Label>
+            <Label Grid.Column="1" HorizontalContentAlignment="Center" FontWeight="Bold">Tue</Label>
+            <Label Grid.Column="2" HorizontalContentAlignment="Center" FontWeight="Bold">Wed</Label>
+            <Label Grid.Column="3" HorizontalContentAlignment="Center" FontWeight="Bold">Thu</Label>
+            <Label Grid.Column="4" HorizontalContentAlignment="Center" FontWeight="Bold">Fri</Label>
+            <Label Grid.Column="5" HorizontalContentAlignment="Center" FontWeight="Bold">Sat</Label>
+            <Label Grid.Column="6" HorizontalContentAlignment="Center" FontWeight="Bold">Sun</Label>
+
+
+        </Grid>
+
+        <Border BorderThickness="0.5,0.5,0,0" BorderBrush="DarkGray">
+            <Grid Name="grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Mondays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Tuesdays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Wednesdays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Thursdays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Fridays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Saturdays}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="6" Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Sundays}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DockPanel>
+</UserControl>
